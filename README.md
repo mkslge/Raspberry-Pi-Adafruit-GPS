@@ -19,12 +19,7 @@ Allows you to get GPS data from an Adafruit GPS HAT connected to a Raspberry Pi 
      ```
    - Navigate to **Interface Options** > **Serial** and enable the serial interface.
    - Disable the serial console if prompted.
-   
-3. **Install the necessary dependencies**:
-   If you don't have GCC installed on your Raspberry Pi, install it by running:
-   ```bash
-   sudo apt-get update
-   sudo apt-get install build-essential
+
 
 ## Building and Running the Code
 
