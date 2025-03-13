@@ -6,6 +6,7 @@ Allows you to get GPS data from an Adafruit GPS HAT connected to a Raspberry Pi 
 
 - **Raspberry Pi 5** (other models may work, but this code is optimized for the Raspberry Pi 5).
 - **Adafruit GPS HAT**
+- **Make sure your GPS Hat can see the Sky (Preferrably Outside, or right next to a window)**
 ## Installation
 
 1. **Connect your Adafruit GPS HAT to the Raspberry Pi**:
