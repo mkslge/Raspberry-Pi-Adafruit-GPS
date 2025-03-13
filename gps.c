@@ -42,14 +42,14 @@ int readGPSData(int fd) {
     //only use sentence if its GPGGA or GNRMC
 
     lineStart = strstr(buffer, "$GNRMC"); //get start of string
-    if(lineStart &&  strstr(lineStart, ",N,") && strstr(lineStart, ",A,")) {
-        char* longitudeStart = strstr(lineStart, ",N,"); //find start of ,N, coordinates
-
+    char* longitudeStart;
+    char* latitudeStart;
+    if(lineStart &&  (longitudeStart = strstr(lineStart, ",N,")) && (latitudeStart = strstr(lineStart, ",A,"))) {
         if(longitudeStart != NULL) {
-             //jump over ,N, that we found
-              longitudeStart += 3;
+            //jump over ,N, that we found
+            longitudeStart += 3;
 
-              //go through until next comma or EOF
+            //go through until next comma or EOF
             int idx = 0;
             while (longitudeStart[idx] != ',' && longitudeStart[idx] != '\0') {
                 idx++;
@@ -67,12 +67,12 @@ int readGPSData(int fd) {
 
             //convert to decimal degrees (DDD + MMM/60)
             double decimalDegrees = degrees + (minutes / 60.0);
-                
+            decimalDegrees *= -1;
                 
             printf("Longitude: %.20lf\n", decimalDegrees);
         }
 
-        char* latitudeStart = strstr(lineStart, ",A,"); //find where ,A, start 
+
         if(latitudeStart != NULL) {
             latitudeStart += 3;  //skip past it to find start of coordinates
                     
@@ -97,6 +97,8 @@ int readGPSData(int fd) {
             printf("Latitude: %.20lf\n\n", decimalDegrees);
         }
 
+    } else {
+        printf("Not enough data, searching...\n");
     }
     
 
@@ -104,11 +106,14 @@ int readGPSData(int fd) {
 }
 
 int main() {
+
     //open GPS port on raspi 5
     int gpsFD = open("/dev/ttyAMA0", O_RDWR | O_NOCTTY);
     if (gpsFD == -1) {
         perror("Unable to open serial port\n");
         return -1;
+    } else {
+        printf("Searching...\n");
     }
 
     //infinite loop
