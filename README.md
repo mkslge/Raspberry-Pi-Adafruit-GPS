@@ -26,6 +26,5 @@ Allows you to get GPS data from an Adafruit GPS HAT connected to a Raspberry Pi 
 1. **Compiling the code**:  
    Open a terminal and navigate to the directory where you have `gps.c`. Then, run the following command to compile the code:
    ```bash
-   gcc gps.c -o gps
-   sudo ./gps
+   make run
 
