@@ -1,7 +1,6 @@
-# GPS Data Reader for Adafruit GPS HAT on Raspberry Pi 4/5 (new models)
+# GPS Data Reader for Adafruit Ultimate GPS HAT on Raspberry Pi 4/5
 
-Allows you to get GPS data from an Adafruit GPS HAT connected to a Raspberry Pi 4/5. The program continuously reads GPS data from the GPS module and prints the longitude and latitude :)
-
+A lightweight C program that reads real-time GPS data (latitude and longitude) from the Adafruit GPS HAT on Raspberry Pi 4 or 5.
 ## Requirements
 
 - **Raspberry Pi 5** (other models may work, but this code is optimized for the Raspberry Pi 4/5).
