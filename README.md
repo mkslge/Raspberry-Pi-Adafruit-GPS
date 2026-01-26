@@ -26,4 +26,9 @@ A lightweight C program that reads real-time GPS data (latitude and longitude) f
    Open a terminal and navigate to the directory where you have `gps.c`. Then, run the following command to compile the code:
    ```bash
    make run
+   ```
+
+---
+## ⭐ If you find this useful, give it a star!
+
 
